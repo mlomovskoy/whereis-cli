@@ -210,6 +210,10 @@ style: |
     color: #c5cedd;
     margin: 0 0 28px 0;
   }
+  section.close h1,
+  section.close .punch {
+    max-width: 700px;
+  }
   section.close .punch {
     font-size: 40px;
     line-height: 1.22;
@@ -217,27 +221,41 @@ style: |
     letter-spacing: -0.035em;
     color: #ffffff;
   }
-  section.close .qr {
+  section.close .qrs {
     position: absolute;
-    right: 72px;
-    top: 176px;
-    width: 220px;
+    right: 48px;
+    top: 156px;
+    display: flex;
+    gap: 16px;
+    margin: 0;
+  }
+  section.close .qr {
+    width: 168px;
     margin: 0;
     text-align: center;
   }
   section.close .qr img {
-    width: 196px;
-    height: 196px;
+    width: 160px;
+    height: 160px;
     background: #ffffff;
     border-radius: 16px;
     padding: 10px;
+    box-sizing: border-box;
   }
   section.close .qr p {
-    margin-top: 12px;
+    margin-top: 10px;
     color: #aeb6c8;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.3;
     letter-spacing: 0;
+  }
+  section.close .qr strong {
+    display: block;
+    margin-bottom: 2px;
+    color: #f4f6fb;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 ---
 
@@ -342,7 +360,13 @@ scanned 153 files · asking grok-4.6 via grok-cli…
 
 <p class="punch"><strong>whereis</strong> tells you where it is,<br>who knows it, and what you'll break.</p>
 
+<div class="qrs">
 <div class="qr">
 <img src="qr-repo.png" alt="QR code for github.com/mlomovskoy/whereis-cli">
-<p>github.com/<br>mlomovskoy/whereis-cli</p>
+<p><strong>The code</strong>github.com/<br>mlomovskoy/<br>whereis-cli</p>
+</div>
+<div class="qr">
+<img src="qr-me.png" alt="QR code for maxim-lomovskoy.link">
+<p><strong>Maxim Lomovskoy</strong>maxim-lomovskoy.link</p>
+</div>
 </div>
