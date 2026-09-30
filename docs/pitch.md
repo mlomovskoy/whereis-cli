@@ -164,9 +164,9 @@ style: |
   }
   section.agents .split {
     display: grid;
-    grid-template-columns: 1.32fr 0.9fr;
+    grid-template-columns: 1.12fr 1fr;
     gap: 18px;
-    align-items: stretch;
+    align-items: start;
   }
   section.agents pre.term {
     margin: 0;
@@ -185,7 +185,6 @@ style: |
     margin: 0;
   }
   section.agents .cards div {
-    flex: 1;
     padding: 14px 16px 14px;
   }
   section.agents .cards span {
@@ -302,7 +301,8 @@ scanned 153 files · asking grok-4.6 via grok-cli…
 # Your agent asks first.
 
 <div class="split">
-<pre class="term"><code><span class="cmd">$ whereis ask "where is res.json implemented?" -d ../demo-repos/express --json</span>
+<pre class="term"><code><span class="cmd">$ whereis ask "where is res.json implemented?"</span>
+<span class="cmd">    -d ../demo-repos/express --json</span>
 [{ "file": "lib/response.js", "line": 236,
    "why": "Defines res.json on the response.",
    "owners": [{ "name": "Sebastian Beltran", ... }],
