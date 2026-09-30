@@ -1,0 +1,11 @@
+---
+description: Spec-driven development rules for whereis
+alwaysApply: true
+---
+- This project is built only from the specs: `specs/requirements.md` (what), `specs/design.md` (how), `specs/tasks.md` (order). Read all three before writing code.
+- Implement one task at a time in `specs/tasks.md` order; run its check, tick its box, commit and push before the next task.
+- If the spec and the code disagree, the spec wins. If the spec is wrong, update the spec first (say why), then the code.
+- Prefer the simplest thing that works reliably; no new dependencies beyond those in NF2.
+- TypeScript ESM CLI with commander. Run with `pnpm dev <cmd>` (pnpm v12: no `-s` flag).
+- All LLM access goes through `src/llm.ts`. Sample repo: `../demo-repos/express` (read-only).
+- Never commit `.env` or any API key.
