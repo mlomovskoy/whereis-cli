@@ -68,5 +68,6 @@ Do not use any tools; everything you need is above. Answer with ONLY a JSON arra
 - `grok -p` is slow with default reasoning; keep `--reasoning-effort low` and the prompt small (10 files, 1500-char excerpts, ≤150 paths) to stay within NF1.
 - `grok -p` runs an agent: with `--max-turns 1` a tool attempt ends in "Max turns reached", so use 3 plus "Do not use any tools".
 - pnpm is v12: there is no `-s` flag; use `pnpm <script>`.
+- TypeScript 7 does not load `@types/node` unless `compilerOptions.types` includes `"node"` (otherwise `fs` / `child_process` imports fail typecheck).
 - Express 5 moved routing into the separate `router` package, so "route params" answers pointing at `app.param` / `lib/express.js` are correct.
 - In Express, `res.json` is defined at `lib/response.js:236`, `app.param` at `lib/application.js:322`, `View.prototype.render` at `lib/view.js:133`; the only importer of `lib/response.js` is `lib/express.js`.

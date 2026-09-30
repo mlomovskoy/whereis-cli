@@ -8,7 +8,7 @@ Work top to bottom. After each task: `pnpm typecheck`, run the listed check, tic
   3. `git init -b main`, commit (specs, rules, config).
   4. Create the GitHub repo and push: `gh repo create whereis-cli --public --source=. --push --description "Where is it, who knows it, what breaks: onboarding CLI for any repo"`. If the name is taken, use `whereis-onboard`.
   Check: `gh repo view --json url` prints the URL; `pnpm typecheck` runs (an empty `src/cli.ts` is fine).
-- [ ] **T1 Scanner** (R1): `src/scan.ts`.
+- [x] **T1 Scanner** (R1): `src/scan.ts`.
   Check: a temporary script prints ~150 files for `../demo-repos/express`, none under `node_modules`.
 - [ ] **T2 LLM backend** (R6): `src/llm.ts`.
   Check: `complete("Reply with exactly: ok")` returns `ok` via the grok CLI in < 10 s.
