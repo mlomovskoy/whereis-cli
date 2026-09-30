@@ -2,6 +2,8 @@
 
 A CLI that tells you where a change lives, who to ask, and what you'll break.
 
+![whereis demo](docs/demo.gif)
+
 ## Install
 
 ```bash
