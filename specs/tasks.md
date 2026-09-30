@@ -2,7 +2,7 @@
 
 Work top to bottom. After each task: `pnpm typecheck`, run the listed check, tick the box, commit, push. Don't start a task before the previous check passes. If a check fails twice, stop and report.
 
-- [ ] **T0 Project + GitHub repo**
+- [x] **T0 Project + GitHub repo**
   1. In this folder: create `package.json`, `tsconfig.json`, `.gitignore`, `.env.example` exactly as in design.md "Project layout".
   2. `pnpm add commander openai dotenv` and `pnpm add -D typescript tsx @types/node`.
   3. `git init -b main`, commit (specs, rules, config).
