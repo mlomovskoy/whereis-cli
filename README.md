@@ -21,6 +21,12 @@ pnpm dev ask "where is the view engine rendering done?" -d ../demo-repos/express
 
 `node dist/cli.js ask "where is the response json method implemented?" -d ../demo-repos/express` does the same after `pnpm build`. Add `-o` to open the top hit in Cursor, or `--json` for a JSON array.
 
+```bash
+pnpm dev map -d ../demo-repos/express
+```
+
+`map` writes one HTML file and opens it: top-level folders, with Mermaid arrows for relative imports between them.
+
 ## How it works
 
 1. List the repo with `git ls-files` (or a file walk if it is not a git repo) and keep source files, skipping dependencies, lockfiles, and large or binary files.

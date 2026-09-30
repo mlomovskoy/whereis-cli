@@ -21,4 +21,4 @@ Work top to bottom. After each task: `pnpm typecheck`, run the listed check, tic
 - [x] **T6 Output polish** (R7, R2.4, R2.5): colors, spinner, timing, `--open`, `--json`.
   Check: A4; `-o` opens Cursor at the line.
 - [x] **T7 Hardening:** run A1–A6 twice, fix flakiness; `pnpm build` then `node dist/cli.js ask …` works. Write README.md (one-line summary, install, 3 example commands, how it works, what's sent to the LLM).
-- [ ] **T8 (stretch) map** (R8).
+- [x] **T8 (stretch) map** (R8).

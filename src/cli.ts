@@ -1,11 +1,14 @@
 import "dotenv/config";
 import { spawn } from "child_process";
+import { writeFile } from "fs/promises";
+import { tmpdir } from "os";
 import { Command } from "commander";
 import path from "path";
 import { ask, type Answer } from "./ask.js";
 import { owners, type Owner } from "./git.js";
 import { importers, relatedTests, type Blast } from "./impact.js";
 import { backend, modelName } from "./llm.js";
+import { renderMapHtml } from "./map.js";
 import { scan, type SourceFile } from "./scan.js";
 
 type Row = {
@@ -62,6 +65,24 @@ program
     }
     const top = rows[0];
     if (opts.open && top) openInCursor(opts.dir, top.file, top.line);
+  });
+
+program
+  .command("map")
+  .description("Open a folder import map in the browser")
+  .option("-d, --dir <dir>", "repository directory", ".")
+  .action(async (opts: { dir: string }) => {
+    const files = scan(opts.dir);
+    const html = renderMapHtml(files);
+    const out = path.join(tmpdir(), "whereis-map.html");
+    await writeFile(out, html, "utf8");
+    console.log(out);
+    const opener = process.platform === "darwin" ? "open" : "xdg-open";
+    const child = spawn(opener, [out], { stdio: "ignore", detached: true });
+    child.on("error", () => {
+      console.error(`Could not open ${out}`);
+    });
+    child.unref();
   });
 
 program.parseAsync(process.argv).catch((err: unknown) => {
