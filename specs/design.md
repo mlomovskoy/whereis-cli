@@ -22,7 +22,8 @@ src/              modules below
 
 ## Flow of `ask`
 ```
-scan(dir) ──► rank files by keywords ──► top 10 files
+scan(dir) ──► rank files by keywords ──► top 10 code files
+(docs/json-only hits, or hits on generic words like "method", are not a match)
                                            │ excerpts (numbered lines, definition lines first)
                                            ▼
                          prompt = question + file list (≤150 paths) + excerpts

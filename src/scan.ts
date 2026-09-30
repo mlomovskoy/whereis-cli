@@ -16,6 +16,12 @@ const SKIP_DIRS = new Set([
   "vendor",
   ".git",
   "coverage",
+  // Dependency trees, same idea as node_modules / vendor. Without this a
+  // recursive walk of a non-repo like /tmp treats leftover virtualenvs as the codebase.
+  "site-packages",
+  "venv",
+  ".venv",
+  "__pycache__",
 ]);
 
 const EXTENSIONS = new Set([
@@ -93,7 +99,7 @@ function listGit(dir: string): string[] | null {
     const out = execFileSync(
       "git",
       ["-C", dir, "ls-files", "-co", "--exclude-standard", "-z"],
-      { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 },
+      { encoding: "utf8", maxBuffer: 32 * 1024 * 1024, stdio: ["ignore", "pipe", "pipe"] },
     );
     return out.split("\0").filter(Boolean).map(toPosix);
   } catch {

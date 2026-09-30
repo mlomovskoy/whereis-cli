@@ -12,7 +12,7 @@ Work top to bottom. After each task: `pnpm typecheck`, run the listed check, tic
   Check: a temporary script prints ~150 files for `../demo-repos/express`, none under `node_modules`.
 - [ ] **T2 LLM backend** (R6): `src/llm.ts`.
   Check: `complete("Reply with exactly: ok")` returns `ok` via the grok CLI in < 10 s.
-- [ ] **T3 ask core** (R2.1–R2.3, R2.6): `src/ask.ts` + `ask` command in `src/cli.ts`.
+- [x] **T3 ask core** (R2.1–R2.3, R2.6): `src/ask.ts` + `ask` command in `src/cli.ts`.
   Check: acceptance tests A1 (location only), A2, A3, A5.
 - [ ] **T4 Owners** (R3): `src/git.ts`, printed under the top result.
   Check: A1 shows owners active in the last 2 years; the two TJ spellings are merged if TJ appears.

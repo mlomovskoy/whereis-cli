@@ -17,7 +17,7 @@ A reliable, working core beats more features. R1–R4 are core; R5–R7 are impo
 
 ### R1 Repo scan
 - R1.1 WHEN the user runs any command with `-d <dir>` (default `.`), the system SHALL list files via `git ls-files -co --exclude-standard`, falling back to a recursive walk if `<dir>` is not a git repo.
-- R1.2 The system SHALL skip `node_modules`, `dist`, `build`, `vendor`, `.git`, `coverage`, lockfiles, `*.min.js`, `*.map`, binary files (contain `\0`), and files > 200 KB.
+- R1.2 The system SHALL skip `node_modules`, `dist`, `build`, `vendor`, `.git`, `coverage`, `venv`, `.venv`, `site-packages`, `__pycache__`, lockfiles, `*.min.js`, `*.map`, binary files (contain `\0`), and files > 200 KB. Virtualenv and site-packages trees are dependency dumps, same as `node_modules`; leaving them in makes a scan of an unrelated directory such as `/tmp` look like a codebase.
 - R1.3 The system SHALL keep only source/config extensions (ts, tsx, js, jsx, mjs, cjs, py, go, rs, java, kt, rb, php, cs, swift, c, h, cpp, vue, svelte, sql, sh, yml, yaml, toml, json, md, prisma, graphql, proto, tf).
 - R1.4 For each file the system SHALL record its path, lines, and import/require targets.
 
