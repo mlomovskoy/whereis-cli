@@ -10,7 +10,7 @@ Work top to bottom. After each task: `pnpm typecheck`, run the listed check, tic
   Check: `gh repo view --json url` prints the URL; `pnpm typecheck` runs (an empty `src/cli.ts` is fine).
 - [x] **T1 Scanner** (R1): `src/scan.ts`.
   Check: a temporary script prints ~150 files for `../demo-repos/express`, none under `node_modules`.
-- [ ] **T2 LLM backend** (R6): `src/llm.ts`.
+- [x] **T2 LLM backend** (R6): `src/llm.ts`.
   Check: `complete("Reply with exactly: ok")` returns `ok` via the grok CLI in < 10 s.
 - [x] **T3 ask core** (R2.1–R2.3, R2.6): `src/ask.ts` + `ask` command in `src/cli.ts`.
   Check: acceptance tests A1 (location only), A2, A3, A5.
