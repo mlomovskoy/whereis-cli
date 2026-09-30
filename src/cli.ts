@@ -2,6 +2,7 @@ import "dotenv/config";
 import { Command } from "commander";
 import { ask } from "./ask.js";
 import { owners } from "./git.js";
+import { importers, relatedTests } from "./impact.js";
 import { scan } from "./scan.js";
 
 const program = new Command();
@@ -32,6 +33,12 @@ program
             .join(", ");
           console.log(`   👤 Ask: ${text}`);
         }
+        const tests = relatedTests(files, answer);
+        if (tests.length > 0) console.log(`   🧪 Run: ${tests.join(", ")}`);
+        const blast = importers(files, answer.file);
+        const noun = blast.count === 1 ? "importer" : "importers";
+        const listed = blast.paths.length > 0 ? `: ${blast.paths.join(", ")}` : "";
+        console.log(`   ⚠️  Blast radius: ${blast.label} (${blast.count} ${noun}${listed})`);
       }
     }
   });
