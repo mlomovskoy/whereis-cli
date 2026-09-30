@@ -14,7 +14,7 @@ Work top to bottom. After each task: `pnpm typecheck`, run the listed check, tic
   Check: `complete("Reply with exactly: ok")` returns `ok` via the grok CLI in < 10 s.
 - [x] **T3 ask core** (R2.1–R2.3, R2.6): `src/ask.ts` + `ask` command in `src/cli.ts`.
   Check: acceptance tests A1 (location only), A2, A3, A5.
-- [ ] **T4 Owners** (R3): `src/git.ts`, printed under the top result.
+- [x] **T4 Owners** (R3): `src/git.ts`, printed under the top result.
   Check: A1 shows owners active in the last 2 years; the two TJ spellings are merged if TJ appears.
 - [ ] **T5 Tests + blast radius** (R4, R5): `src/impact.ts`, printed under the top result.
   Check: A1 shows `test/res.json.js` and `lib/express.js` as the importer; A3 shows `test/app.render.js`.

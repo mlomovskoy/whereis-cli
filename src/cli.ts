@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { Command } from "commander";
 import { ask } from "./ask.js";
+import { owners } from "./git.js";
 import { scan } from "./scan.js";
 
 const program = new Command();
@@ -23,6 +24,15 @@ program
       const marker = index === 0 ? "→" : " ";
       console.log(`${marker} ${answer.file}:${answer.line}`);
       if (answer.why) console.log(`    ${answer.why}`);
+      if (index === 0) {
+        const people = owners(opts.dir, answer.file);
+        if (people.length > 0) {
+          const text = people
+            .map((person) => `${person.name} (${person.commits} commit${person.commits === 1 ? "" : "s"}, ${person.last})`)
+            .join(", ");
+          console.log(`   👤 Ask: ${text}`);
+        }
+      }
     }
   });
 
